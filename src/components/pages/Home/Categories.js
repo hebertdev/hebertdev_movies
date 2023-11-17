@@ -30,24 +30,25 @@ export function Categories() {
   const [categories, setCategories] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const getCategories = useCallback(async () => {
-    if (loading) return;
-    try {
-      setLoading(true);
-      const { data } = await axiosInstance.get(
-        `/genre/movie/list?language=${router.locale}`
-      );
-      setCategories(data.genres);
-      setLoading(false);
-    } catch (error) {
-      setLoading(false);
-      console.log(error);
-    }
-  }, [router.locale, loading]);
+  // const getCategories = useCallback(async () => {
+  //   if (loading) return;
+  //   try {
+  //     setLoading(true);
+  //     const { data } = await axiosInstance.get(
+  //       `/genre/movie/list?language=${router.locale}`
+  //     );
+  //     console.log(data);
+  //     setCategories(data.genres);
+  //     setLoading(false);
+  //   } catch (error) {
+  //     setLoading(false);
+  //     console.log(error);
+  //   }
+  // }, [router.locale, loading]);
 
-  useEffect(() => {
-    getCategories();
-  }, [router.locale]);
+  // useEffect(() => {
+  //   getCategories();
+  // }, [router.locale]);
 
   return (
     <Container>
@@ -102,7 +103,7 @@ export function Categories() {
 
       <Grid container spacing={2}>
         {categories?.map((category, index) => (
-          <Grid item xs={6} md={4} key={category.id}>
+          <Grid item xs={6} md={4} key={index}>
             <CategoryCard category={category} index={index} router={router} />
           </Grid>
         ))}

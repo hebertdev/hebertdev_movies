@@ -28,14 +28,12 @@ export function Banner({ data }) {
     <Box
       sx={{
         height: "100vh",
-        background: `${
-          trendingMovie
-            ? `url('${urlImageW1900(trendingMovie?.backdrop_path)}')`
-            : "var(--backgroundColor)"
-        } no-repeat center center fixed`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundImage: trendingMovie
+          ? `url('${urlImageW1900(trendingMovie?.backdrop_path)}')`
+          : "var(--backgroundColor)",
         backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
         position: "relative",
       }}
     >

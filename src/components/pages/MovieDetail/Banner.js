@@ -19,7 +19,6 @@ import {
   DialogActions,
   DialogTitle,
   DialogContent,
-  Hidden,
 } from "@mui/material";
 
 import Rating from "@mui/material/Rating";
@@ -30,15 +29,16 @@ export function Banner({ movie, directors }) {
     <Box
       sx={{
         height: "100vh",
-        minHeight: { xs: "100vh", sm: "100vh" },
-        background: `${
-          movie
-            ? `url('${urlImageW1900(movie?.backdrop_path)}')`
-            : "var(--primaryColor)"
-        } no-repeat center center fixed`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+        minHeight: {
+          xs: "100vh",
+          sm: "100vh",
+        },
+        backgroundImage: movie
+          ? `url('${urlImageW1900(movie?.backdrop_path)}')`
+          : "var(--primaryColor)",
         backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
         position: "relative",
       }}
     >

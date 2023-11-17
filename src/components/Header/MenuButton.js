@@ -114,24 +114,24 @@ function Categories({
   const [categories, setCategories] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    getCategories();
-  }, [router.locale, getCategories]);
+  // useEffect(() => {
+  //   getCategories();
+  // }, [router.locale, getCategories]);
 
-  const getCategories = useCallback(async () => {
-    if (loading) return;
-    try {
-      setLoading(true);
-      const { data } = await axiosInstance.get(
-        `/genre/movie/list?language=${router.locale}`
-      );
-      setCategories(data.genres);
-      setLoading(false);
-    } catch (error) {
-      setLoading(false);
-      console.log(error);
-    }
-  }, [router.locale, loading]);
+  // const getCategories = useCallback(async () => {
+  //   if (loading) return;
+  //   try {
+  //     setLoading(true);
+  //     const { data } = await axiosInstance.get(
+  //       `/genre/movie/list?language=${router.locale}`
+  //     );
+  //     setCategories(data.genres);
+  //     setLoading(false);
+  //   } catch (error) {
+  //     setLoading(false);
+  //     console.log(error);
+  //   }
+  // }, [router.locale, loading]);
 
   function handleClickButtonDarkMode() {
     colorMode.toggleColorMode();

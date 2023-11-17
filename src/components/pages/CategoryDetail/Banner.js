@@ -21,20 +21,20 @@ export function Banner({ movie }) {
   let router = useRouter();
   const [genr, setGenr] = useState(null);
   const { id } = router.query;
-  useEffect(() => {
-    async function getCategories() {
-      try {
-        const { data } = await axiosInstance.get(
-          `/genre/movie/list?language=${router.locale}`
-        );
-        const gen = data.genres.filter((genre) => genre.id === parseInt(id));
-        setGenr(gen[0]);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    getCategories();
-  }, [router.locale, movie, id]);
+  // useEffect(() => {
+  //   async function getCategories() {
+  //     try {
+  //       const { data } = await axiosInstance.get(
+  //         `/genre/movie/list?language=${router.locale}`
+  //       );
+  //       const gen = data.genres.filter((genre) => genre.id === parseInt(id));
+  //       setGenr(gen[0]);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  //   getCategories();
+  // }, [router.locale, movie, id]);
 
   return (
     <Box

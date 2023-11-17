@@ -17,15 +17,16 @@ export function Banner({ movie, handleSubmit, queri }) {
     <Box
       sx={{
         height: movie ? "50vh" : "100vh",
-        minHeight: { xs: "50vh", sm: "50vh" },
-        background: `${
-          movie
-            ? `url('${urlImageW1900(movie?.backdrop_path)}')`
-            : `url('${SadWallpaper.src}')`
-        } no-repeat center center fixed`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+        minHeight: {
+          xs: "50vh",
+          sm: "50vh",
+        },
+        backgroundImage: movie
+          ? `url('${urlImageW1900(movie?.backdrop_path)}')`
+          : `url('${SadWallpaper.src}')`,
         backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
         position: "relative",
       }}
     >
